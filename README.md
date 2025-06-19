@@ -9,7 +9,8 @@ This project contains test automation scripts developed using Selenium, Java, Te
 - Selenium WebDriver  
 - Maven  
 - TestNG  
-- WebDriverManager  
+- WebDriverManager
+- POM
 
 
 ---
