@@ -1,0 +1,54 @@
+package pages;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import javax.swing.*;
+
+public class CheckoutPage extends BasePage {
+
+    // Constructor
+    public CheckoutPage(WebDriver driver) {
+        super(driver);
+    }
+
+    // Locators
+    By shoppingCartButton = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a");
+    By proceedToCheckout = By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[2]/div[1]/ul/li[1]/button/span");
+    By EmailAddress = By.xpath("//*[@id=\"customer-email\"]");
+    By PasswordField = By.xpath("//*[@id=\"customer-password\"]");
+    By LoginButton = By.xpath("//*[@id=\"customer-login\"]/div[2]/div[1]/button/span");
+    By NextButton = By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button/span");
+    By PlaceOrderButton = By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button/span");
+
+
+    // Method
+    public void clickShoppingCartButton() {
+        WebElement cartButton = wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton));
+        cartButton.click();
+    }
+    public void ProceedToCheckout() {
+       driver.findElement(proceedToCheckout).click();
+
+    }
+    public void EnterEmailAddress(String email) {
+        WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(EmailAddress));
+        emailField.sendKeys(email);
+    }
+    public void EnterPassword(String password) {
+        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordField));
+        passwordField.sendKeys(password);
+    }
+    public void ClickLoginButton() {
+        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(LoginButton));
+        loginButton.click();
+    }
+    public void ClickNextButton() {
+        WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(NextButton));
+        nextButton.click();
+    }
+    public void ClickPlaceOrderButton() {
+        WebElement placeOrderButton = wait.until(ExpectedConditions.elementToBeClickable(PlaceOrderButton));
+        placeOrderButton.click();
+    }
+}

@@ -1,0 +1,25 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Keys;
+
+public class ProductsPage extends BasePage {
+
+    // Constructor
+    public ProductsPage(WebDriver driver) {
+        super(driver);
+    }
+
+    // Locators
+    By searchField = By.xpath("//*[@id=\"search\"]");
+
+    // methods
+    public void searchForProduct(String product) {
+        waitForElementToBeClickables(driver.findElement(searchField));
+        driver.findElement(searchField).click();
+        driver.findElement(searchField).sendKeys(product);
+        driver.findElement(searchField).sendKeys(Keys.ENTER);
+    }
+
+}
